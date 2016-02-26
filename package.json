@@ -1,0 +1,19 @@
+{
+  "name": "picca",
+  "version": "1.0.0",
+  "description": "Photos from the web. Build just for fun.",
+  "main": "app.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TimoWestland/picca.git"
+  },
+  "author": "Timo Westland",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TimoWestland/picca/issues"
+  },
+  "homepage": "https://github.com/TimoWestland/picca#readme"
+}

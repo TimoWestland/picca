@@ -1,0 +1,40 @@
+$grid-max-width: 1150px;
+$grid-max-columns: 12;
+
+%flexContainer {
+  display: flex;
+  flex-flow: row wrap;
+
+  width: 100%;
+  max-width: $grid-max-width;
+
+  margin: 0 auto;
+}
+
+%flexContainer--nowrap {
+  display: flex;
+  flex-flow: row;
+
+  width: 100%;
+  max-width: $grid-max-width;
+
+  margin: 0 auto;
+}
+
+
+// Column creator
+@mixin column($columns, $max: $grid-max-columns, $gutter: true, $margin-bottom: false) {
+
+  width: fluidize(#{$columns}, #{$max});
+
+  @if $gutter == true {
+    padding: 0 px-to-em(10px);
+  }
+
+  @if $margin-bottom == true {
+    margin-bottom: px-to-em($spacing-unit * 1.5);
+  }
+
+}
+
+

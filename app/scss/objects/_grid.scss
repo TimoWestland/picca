@@ -25,7 +25,7 @@ $grid-max-columns: 12;
 // Column creator
 @mixin column($columns, $max: $grid-max-columns, $gutter: true, $margin-bottom: false) {
 
-  width: fluidize(#{$columns}, #{$max});
+  width: fluidize($columns, $max);
 
   @if $gutter == true {
     padding: 0 px-to-em(10px);

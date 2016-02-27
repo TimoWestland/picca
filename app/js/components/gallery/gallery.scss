@@ -1,0 +1,20 @@
+@import '../../../scss/settings/__settings';
+@import '../../../scss/tools/__tools';
+@import '../../../scss/objects/_grid';
+
+.gallery {
+  @extend %flexContainer;
+  padding: 0;
+  list-style: none;
+  overflow: hidden;
+
+  &__item {
+    @include column(12, 12, $margin-bottom: true);
+    @include breakpoint(medium-up) {
+      @include column(6, 12);
+    }
+    @include breakpoint(large-up) {
+      @include column(3, 12);
+    }
+  }
+}

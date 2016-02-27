@@ -1,8 +1,9 @@
-import fetch from 'node-fetch';
+import axios from 'axios';
 import { API_URL, API_KEY } from '../constants/constants';
 
+
 function getItems(params) {
-    return fetch(API_URL, {
+    return axios(API_URL, {
         params: Object.assign({}, params, { api_key: API_KEY })
     });
 }

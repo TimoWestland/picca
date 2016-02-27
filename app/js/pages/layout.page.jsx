@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Header from '../components/header/header';
+import Navigation from '../components/navigation/navigation';
 
 import '../../scss/app.scss';
 
@@ -11,6 +12,7 @@ class Layout extends Component {
         return (
             <section>
                 <Header />
+                <Navigation />
             </section>
         );
     }

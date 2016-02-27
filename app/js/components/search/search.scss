@@ -27,7 +27,7 @@
     border: 2px solid $color-white;
     border-radius: 100px;
     opacity: .7;
-    font-size: px-to-rem(18px);
+    font-size: px-to-rem(16px);
     line-height: 25px;
     transition: opacity $timing-medium ease;
     &:focus {
@@ -35,9 +35,12 @@
       opacity: 1;
     }
     @include breakpoint(medium-up) {
-      font-size: px-to-rem(20px);
+      font-size: px-to-rem(18px);
       width: 100%;
       max-width: 300px;
+    }
+    @include breakpoint(large-up) {
+      font-size: px-to-rem(20px);
     }
   }
 }

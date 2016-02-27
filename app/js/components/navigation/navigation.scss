@@ -1,0 +1,49 @@
+@import '../../../scss/settings/__settings';
+@import '../../../scss/tools/__tools';
+
+.nav {
+  display: flex;
+  padding: px-to-em($spacing-unit * 2.5) 0;
+  justify-content: center;
+  @include breakpoint(medium-up) {
+    padding: px-to-em($spacing-unit * 3) 0;
+  }
+  @include breakpoint(large-up) {
+    padding: px-to-em($spacing-unit * 4) 0;
+  }
+
+  &__list {
+    align-self: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  &__item {
+    display: inline-block;
+    & + & {
+      margin-left: px-to-em($spacing-unit * 3.5);
+    }
+  }
+
+  &__link {
+    text-transform: uppercase;
+    font-size: px-to-rem(16px);
+    @include breakpoint(medium-up) {
+      font-size: px-to-rem(18px);
+    }
+    @include breakpoint(large-up) {
+      font-size: px-to-rem(20px);
+    }
+
+    &._is_active::after {
+      content: '';
+      display: block;
+      width: 75%;
+      height: 2px;
+      transform: translateY(5px);
+      background-color: $color-primary;
+      margin: 0 auto;
+    }
+  }
+}

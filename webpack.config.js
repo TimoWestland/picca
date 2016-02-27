@@ -25,11 +25,18 @@ var config = {
     debug: true,
     devtool: 'source-map',
     module: {
+        preLoaders: [
+            {
+                test: /\.jsx?$/,
+                exclude: '/node_modules/',
+                loader: 'eslint'
+            }
+        ],
         loaders: [
             {
                 test: /\.jsx?$/,
                 exclude: '/node_modules/',
-                loader: ['babel'],
+                loader: 'babel',
                 query: {
                     presets: [
                         'react',
@@ -38,8 +45,6 @@ var config = {
                     ]
                 }
             },
-
-            // SASS
             {
                 test: /\.scss$/,
                 loaders: [
@@ -73,7 +78,6 @@ var config = {
     },
 
     plugins: [
-        new webpack.optimize.OccurenceOrderPlugin(),
         new webpack.NoErrorsPlugin(),
         new HtmlWebpackPlugin({
             template: PATHS.app + '/index.html'

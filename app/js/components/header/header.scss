@@ -1,0 +1,67 @@
+@import '../../../scss/settings/__settings';
+@import '../../../scss/tools/__tools';
+
+.header {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 40vh;
+  overflow: hidden;
+  background: $color-white no-repeat url('https://dl.dropboxusercontent.com/u/15118927/cover.png') center center;
+  z-index: 1;
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: linear-gradient(90deg, #2D8B8D 0%, #53A0FD 0%, #51ECEC 100%);
+    opacity: .5;
+    z-index: 2;
+  }
+  @include breakpoint(medium-up) {
+    height: 50vh;
+  }
+  @include breakpoint(large-up) {
+    height: 60vh;
+  }
+
+  &__container {
+    align-self: center;
+    text-align: center;
+    border-left: $spacing-unit solid transparent;
+    border-right: $spacing-unit solid transparent;
+    z-index: 3;
+  }
+
+  &__title {
+    margin: 0;
+    color: $color-white;
+    font-size: px-to-rem(38px);
+    @include breakpoint(medium-up) {
+      font-size: px-to-rem(48px);
+    }
+    @include breakpoint(large-up) {
+      font-size: px-to-rem(68px);
+    }
+  }
+
+  &__subTitle {
+    color: $color-white;
+    opacity: .85;
+    line-height: 1;
+    margin-top: px-to-em($spacing-unit / 2);
+    font-size: px-to-rem(18px);
+    @include breakpoint(medium-up) {
+      margin-top: px-to-em($spacing-unit);
+      font-size: px-to-rem(24px);
+    }
+    @include breakpoint(large-up) {
+      margin-top: px-to-em($spacing-unit * 2);
+      font-size: px-to-rem(30px);
+    }
+  }
+}
+

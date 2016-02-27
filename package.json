@@ -8,9 +8,9 @@
   },
   "scripts": {
     "build": "webpack --colors --progress",
-    "start": "webpack-dev-server --colors --progress --hot --inline && echo Listening at localhost:8080",
+    "start": "webpack-dev-server --colors --progress --hot --inline",
     "test": "test",
-    "lint": "eslint --ext .js --ext .jsx ./app ./webpack && echo No linting errors.",
+    "lint": "eslint --ext .js --ext .jsx ./app ./webpack",
     "clean": "rimraf $npm_package_config_buildDir"
   },
   "repository": {

@@ -3,21 +3,13 @@
 }
 
 html {
-  // Prevent iOS and IE text size adjust after device orientation change,
-  // without disabling user zoom.
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-
   // set font defaults
   font-size: $font-size-default * 1px;
   font-family: $font-stack-default;
   font-weight: $font-weight-normal;
   line-height: $font-lineHeight-default;
 
-  //color: $color-text-primary;
-
-  -moz-osx-font-smoothing: grayscale;
-  font-smoothing: antialiased; /* generic font smoothing */
+  color: $color-text-primary;
 
   margin: 0;
 

@@ -1,0 +1,43 @@
+@import '../../../scss/settings/__settings';
+@import '../../../scss/tools/__tools';
+
+.search {
+  display: block;
+  margin: px-to-em($spacing-unit * 2.5) auto 0;
+  color: $color-white;
+  @include breakpoint(large-up) {
+    margin-top: px-to-em($spacing-unit * 5);
+  }
+
+  &::after {
+    @include addIcon(search);
+    position: absolute;
+    font-size: px-to-rem(20px);
+    transform: translateX(-30px) translateY(13px);
+    opacity: .7;
+    @include breakpoint(medium-up) {
+      font-size: px-to-rem(24px);
+      transform: translateX(-35px) translateY(15px);
+    }
+  }
+
+  &__query[type='search'] {
+    padding: px-to-em($spacing-unit) px-to-em($spacing-unit * 3) px-to-em($spacing-unit) px-to-em($spacing-unit);
+    background-color: transparent;
+    border: 2px solid $color-white;
+    border-radius: 100px;
+    opacity: .7;
+    font-size: px-to-rem(18px);
+    line-height: 25px;
+    transition: opacity $timing-medium ease;
+    &:focus {
+      outline: none;
+      opacity: 1;
+    }
+    @include breakpoint(medium-up) {
+      font-size: px-to-rem(20px);
+      width: 100%;
+      max-width: 300px;
+    }
+  }
+}

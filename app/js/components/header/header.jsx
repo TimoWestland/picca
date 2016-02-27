@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
+import Search from '../search/search';
+
 import './header.scss';
+
 
 class Header extends Component {
     render() {
@@ -8,6 +11,8 @@ class Header extends Component {
                 <div className="header__container">
                     <h1 className="header__title">PICCA</h1>
                     <h2 className="header__subTitle">Dream bigger, Get money, Pay bitches.</h2>
+
+                    <Search />
                 </div>
             </header>
         );

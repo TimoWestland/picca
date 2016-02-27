@@ -1,6 +1,8 @@
 var path = require('path');
+var webpack = require('webpack');
 var autoprefixer = require('autoprefixer');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+
 
 const PATHS = {
     app: path.join(__dirname, 'app'),
@@ -15,7 +17,8 @@ var config = {
 
     output: {
         path: PATHS.build,
-        filename: 'js/bundle.js'
+        filename: 'js/bundle.js',
+        publicPath: '/build/'
     },
 
     cache: true,
@@ -25,10 +28,14 @@ var config = {
         loaders: [
             {
                 test: /\.jsx?$/,
-                loader: 'babel',
                 exclude: '/node_modules/',
+                loader: ['babel'],
                 query: {
-                    presets: ['react', 'es2015', 'stage-0']
+                    presets: [
+                        'react',
+                        'es2015',
+                        'stage-0'
+                    ]
                 }
             },
 
@@ -49,12 +56,6 @@ var config = {
         autoprefixer({ browsers: ['last 2 versions'] })
     ],
 
-    plugins: [
-        new HtmlWebpackPlugin({
-            template: PATHS.app + '/index.html'
-        })
-    ],
-
     resolve: {
         root: PATHS.app,
         extensions: [
@@ -71,9 +72,16 @@ var config = {
         ]
     },
 
+    plugins: [
+        new webpack.optimize.OccurenceOrderPlugin(),
+        new webpack.NoErrorsPlugin(),
+        new HtmlWebpackPlugin({
+            template: PATHS.app + '/index.html'
+        })
+    ],
+
     devServer: {
-        contentBase: './build',
-        historyApiFallback: false
+        contentBase: './build/'
     }
 };
 

@@ -18,7 +18,7 @@
     right: 0;
     bottom: 0;
     background-image: linear-gradient(90deg, #2D8B8D 0%, #53A0FD 0%, #51ECEC 100%);
-    opacity: .5;
+    opacity: .6;
     z-index: 2;
   }
   @include breakpoint(medium-up) {
@@ -39,9 +39,9 @@
   &__title {
     margin: 0;
     color: $color-white;
-    font-size: px-to-rem(38px);
+    font-size: px-to-rem(48px);
     @include breakpoint(medium-up) {
-      font-size: px-to-rem(48px);
+      font-size: px-to-rem(58px);
     }
     @include breakpoint(large-up) {
       font-size: px-to-rem(68px);
@@ -59,7 +59,7 @@
       font-size: px-to-rem(24px);
     }
     @include breakpoint(large-up) {
-      margin-top: px-to-em($spacing-unit * 2);
+      margin-top: px-to-em($spacing-unit * 1.5);
       font-size: px-to-rem(30px);
     }
   }

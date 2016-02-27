@@ -1,0 +1,21 @@
+%heading--one {
+  color: $color-text-primary;
+  margin: 1.25em 0 .5em 0;
+  font-size: px-to-rem(36px);
+  line-height: 42px;
+}
+
+%heading--two {
+  color: $color-text-primary;
+  margin: 1.25em 0 .5em 0;
+  font-size: px-to-rem(28px);
+  line-height: 34px;
+}
+
+h1 {
+  @extend %heading--one;
+}
+
+h2 {
+  @extend %heading--two;
+}

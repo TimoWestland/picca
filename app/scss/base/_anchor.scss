@@ -1,0 +1,12 @@
+a {
+  color: $color-primary;
+  text-decoration: none;
+  line-height: inherit;
+  transition: color $timing-medium ease;
+  &:hover,
+  &:focus,
+  &:active {
+    color: lighten($color-primary, 40%);
+    outline: none;
+  }
+}

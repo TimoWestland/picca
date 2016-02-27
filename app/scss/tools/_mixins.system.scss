@@ -1,0 +1,20 @@
+$default-breakpoint: root;
+$current-breakpoint: $default-breakpoint;
+$placeholders: ();
+
+@mixin breakpoint($breakpoint) {
+  $value: map-get($breakpoints, $breakpoint);
+
+  @if $value != null {
+    $current-breakpoint: $breakpoint !global;
+
+    @media #{$value} {
+      @content;
+    }
+
+    $current-breakpoint: $default-breakpoint !global;
+
+  } @else {
+    @warn "Invalid breakpoint `#{$breakpoint}`.";
+  }
+}

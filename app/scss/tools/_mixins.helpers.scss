@@ -1,0 +1,45 @@
+// Clearfix
+%clearfix {
+  *zoom: 1;
+  &::before,
+  &::after {
+    content: ' ';
+    display: table;
+  }
+  &::after {
+    clear: both;
+  }
+}
+
+// Keyframes
+@mixin keyframes($animation-name) {
+  @-webkit-keyframes #{$animation-name} {
+    @content
+  }
+  @keyframes #{$animation-name} {
+    @content
+  }
+}
+
+// Placeholder
+@mixin placeholder {
+  ::-webkit-input-placeholder {@content}
+  :-moz-placeholder           {@content}
+  ::-moz-placeholder          {@content}
+  :-ms-input-placeholder      {@content}
+}
+
+// Icons
+@mixin addIcon($icon-name) {
+  @extend %iconBase;
+
+  @if map_get($icons, $icon-name) {
+    $icon-glyph: map_get($icons, $icon-name);
+    content: '#{$icon-glyph}';
+  } @else {
+    @warn 'Icon not found';
+  }
+}
+
+
+

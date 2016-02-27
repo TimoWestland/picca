@@ -1,0 +1,27 @@
+// Strip units like 'px'
+@function strip-unit($num) {
+  @return $num / ($num * 0 + 1);
+}
+
+// Transform px to em
+@function px-to-em($value) {
+  $value: (strip-unit($value) / $font-size-default) * 1em;
+  @if ($value == 0em) {
+    $value: 0;
+  }
+  @return $value;
+}
+
+// Transform px to rem
+@function px-to-rem($value) {
+  $value: (strip-unit($value) / $font-size-default) * 1rem;
+  @if ($value == 0rem) {
+    $value: 0;
+  }
+  @return $value;
+}
+
+// Calc percentage
+@function fluidize($target, $context) {
+  @return ($target / $context) * 100%;
+}

@@ -1,0 +1,19 @@
+// Values
+$breakpoint-tiny: 480px !default;
+$breakpoint-small: 668px !default;
+$breakpoint-medium: 992px !default;
+$breakpoint-large: 1200px !default;
+
+// Map to names
+$breakpoints: (
+  'tiny-only': 'only screen and (max-width: #{$breakpoint-tiny})',
+  'small-down': 'only screen and (max-width: #{$breakpoint-small})',
+  'small-only': 'only screen and (min-width: #{$breakpoint-tiny + 1}) and (max-width: #{$breakpoint-small})',
+  'small-up': 'only screen and (min-width: #{$breakpoint-tiny + 1})',
+  'medium-down': 'only screen and (max-width: #{$breakpoint-medium})',
+  'medium-only': 'only screen and (min-width: #{$breakpoint-small}) and (max-width: #{$breakpoint-medium})',
+  'medium-up': 'only screen and (min-width: #{$breakpoint-small})',
+  'large-down': 'only screen and (max-width: #{$breakpoint-large})',
+  'large-only': 'only screen and (min-width: #{$breakpoint-medium + 1}) and (max-width: #{$breakpoint-large})',
+  'large-up': 'only screen and (min-width: #{$breakpoint-medium + 1})'
+);

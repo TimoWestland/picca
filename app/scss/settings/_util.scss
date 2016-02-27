@@ -1,0 +1,9 @@
+// Spacing units
+$spacing-unit: 10px;
+
+// Easing algorithms and timings
+$easing-material: cubic-bezier(.55, 0, .1, 1) !default;
+
+$timing-slow: 300ms !default;
+$timing-medium: 250ms !default;
+$timing-fast: 200ms !default;

@@ -5,6 +5,7 @@ import {
     PHOTOS_UPDATED,
     PHOTOS_GET_SUCCES,
     PHOTOS_GET_ERROR,
+    PHOTOS_DELETED,
     FEATURE_UPDATED
 } from '../constants/constants';
 
@@ -32,6 +33,10 @@ Dispatcher.register((action) => {
             action.data.forEach((item) => {
                 store.set(item);
             });
+            break;
+
+        case PHOTOS_DELETED:
+            store.removeAll();
             break;
 
         case PHOTOS_GET_ERROR:

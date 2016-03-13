@@ -61,16 +61,17 @@ class Gallery extends Component {
     }
 
     onFeatureChange = () => {
-        this.setState(getGalleryState());
-
-        Actions.getPhotos(this.params);
+        setTimeout(() => {
+            this.params.feature = NavStore.get();
+            Actions.clearPhotos();
+        }, 300);
     };
 
     onChange = () => {
         this.setState(getGalleryState());
     };
 
-    onScroll() {
+    onScroll = () => {
         const scrollTop = window.pageYOffset;
         const windowHeight = window.innerHeight;
 
@@ -82,14 +83,15 @@ class Gallery extends Component {
 
         if(scrollTop !== (documentHeight - windowHeight)) {
             return false;
+        } else {
+            this.onDocumentEnd();
         }
-
-        this.onDocumentEnd();
-    }
+    };
 
     onDocumentEnd() {
         let nextPage = this.params.page + 1;
 
+        // TODO: replace the hardcoded 1000 with max from API response
         if(nextPage < 1000) {
             Actions.getPhotos(this.params);
             this.params.page = nextPage;

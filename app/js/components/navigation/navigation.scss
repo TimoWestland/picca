@@ -36,6 +36,9 @@
     @include breakpoint(large-up) {
       font-size: px-to-rem(20px);
     }
+    &._is_active {
+      pointer-events: none;
+    }
     &._is_active::after {
       content: '';
       display: block;
@@ -45,9 +48,6 @@
       transform: translateY(5px);
       background-color: $color-primary;
       transition: background-color $timing-medium ease;
-    }
-    &._is_active:hover::after {
-      background-color: lighten($color-primary, 40%);
     }
   }
 }

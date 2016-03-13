@@ -1,6 +1,7 @@
 export const PHOTOS_GET_SUCCES = 'PHOTOS_GET_SUCCES';
 export const PHOTOS_GET_ERROR = 'PHOTOS_GET_ERROR';
 export const PHOTOS_UPDATED = 'PHOTOS_UPDATED';
+export const PHOTOS_DELETED = 'PHOTOS_DELETED';
 
 export const FEATURE_UPDATED = 'FEATURE_UPDATED';
 export const DEFAULT_FEATURE = 'popular';

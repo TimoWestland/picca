@@ -4,6 +4,7 @@ import API from '../lib/api';
 import {
     PHOTOS_GET_SUCCES,
     PHOTOS_GET_ERROR,
+    PHOTOS_DELETED,
     FEATURE_UPDATED
 } from '../constants/constants';
 
@@ -24,6 +25,12 @@ function getPhotos(params) {
        });
 }
 
+function clearPhotos() {
+    Dispatcher.dispatch({
+        type: PHOTOS_DELETED
+    });
+}
+
 function setFeature(feature) {
     Dispatcher.dispatch({
         type: FEATURE_UPDATED,
@@ -33,6 +40,7 @@ function setFeature(feature) {
 
 export default {
     getPhotos,
+    clearPhotos,
     setFeature
 };
 

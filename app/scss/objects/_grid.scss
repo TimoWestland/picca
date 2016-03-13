@@ -1,4 +1,4 @@
-$grid-max-width: 1150px;
+$grid-max-width: 1200px;
 $grid-max-columns: 12;
 
 %flexContainer {
@@ -25,10 +25,11 @@ $grid-max-columns: 12;
 // Column creator
 @mixin column($columns, $max: $grid-max-columns, $gutter: true, $margin-bottom: false) {
 
+  flex-grow: 1;
   width: fluidize($columns, $max);
 
   @if $gutter == true {
-    padding: 0 px-to-em(10px);
+    padding: 0 px-to-em($spacing-unit);
   }
 
   @if $margin-bottom == true {

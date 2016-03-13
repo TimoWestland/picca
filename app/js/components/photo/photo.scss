@@ -1,0 +1,52 @@
+@import '../../../scss/settings/__settings';
+@import '../../../scss/tools/__tools';
+
+.photo {
+  position: relative;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  cursor: pointer;
+  line-height: 0;
+  z-index: 1;
+  &::after {
+    position: absolute;
+    display: block;
+    content: '';
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, .7);
+    opacity: 0;
+    transition: opacity $timing-medium ease;
+    z-index: 2
+  }
+  &:hover::after {
+    opacity: 1;
+  }
+  &:hover .photo__info {
+    transform: translateY(-5px);
+  }
+
+  &__info {
+    position: absolute;
+    display: block;
+    padding: 0 $spacing-unit;
+    left: 0;
+    right: 0;
+    bottom: 5px;
+    color: $color-white;
+    line-height: 1.5;
+    user-select: none;
+    z-index: 3;
+
+    transform: translateY(80px);
+    transition: transform $timing-medium $easing-material;
+  }
+
+  &__title {
+    font-size: px-to-rem(18px);
+    display: block;
+  }
+}

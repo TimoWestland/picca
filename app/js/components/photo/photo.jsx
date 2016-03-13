@@ -1,22 +1,53 @@
 import React, { Component, PropTypes } from 'react';
 
+import './photo.scss';
+
+
+const COLORS = ['#50E3C2', '#FFC43D', '#EF476F'];
+
 class Photo extends Component {
 
     static propTypes = {
-        data: PropTypes.object.isRequired
+        url: PropTypes.string.isRequired,
+        title: PropTypes.string.isRequired,
+        user: PropTypes.string.isRequired,
+        data: PropTypes.object
     };
 
+    static getColorStyle() {
+        // return a random number between 1 and 3
+        let colorId = Math.floor(Math.random() * (3 - 1 + 1)) + 1;
+
+        return { color: COLORS[colorId - 1] };
+    }
+
     componentWillMount() {
-        const { farm, server, id, secret } = this.props.data;
-        this.url = `https://farm${farm}.staticflickr.com/${server}/${id}_${secret}.jpg`;
+
     }
 
     render() {
-        const { title } = this.props.data;
+        let {
+            url,
+            title,
+            user
+            } = this.props;
 
-        return(
+        let colorStyle = Photo.getColorStyle();
+
+        if(title.length > 20) {
+            title = title.substr(0, 20) + '...';
+        }
+
+        return (
             <li className="gallery__item">
-                <img src={this.url} alt={title}/>
+                <figure className="photo">
+                    <img src={url} alt={title}/>
+
+                    <figcaption className="photo__info">
+                        <span className="photo__title">{title}</span>
+                        photo by <span style={colorStyle}>{user}</span>
+                    </figcaption>
+                </figure>
             </li>
         );
     }

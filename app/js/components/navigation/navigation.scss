@@ -28,6 +28,7 @@
 
   &__link {
     text-transform: uppercase;
+    cursor: pointer;
     font-size: px-to-rem(16px);
     @include breakpoint(medium-up) {
       font-size: px-to-rem(18px);
@@ -35,15 +36,18 @@
     @include breakpoint(large-up) {
       font-size: px-to-rem(20px);
     }
-
     &._is_active::after {
       content: '';
       display: block;
       width: 75%;
       height: 2px;
+      margin: 0 auto;
       transform: translateY(5px);
       background-color: $color-primary;
-      margin: 0 auto;
+      transition: background-color $timing-medium ease;
+    }
+    &._is_active:hover::after {
+      background-color: lighten($color-primary, 40%);
     }
   }
 }

@@ -14,7 +14,6 @@ class Navigation extends Component {
         this.state = { activeFeature: DEFAULT_FEATURE };
     }
 
-    // todo: figure out why we have to click twice
     handleClick = (feature) => {
         Actions.setFeature(feature);
 

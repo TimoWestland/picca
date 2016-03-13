@@ -1,5 +1,9 @@
 import axios from 'axios';
-import { API_URL, API_KEY } from '../constants/constants';
+
+import {
+    API_URL,
+    API_KEY
+} from '../constants/constants';
 
 
 function getItems(params) {
@@ -8,4 +12,13 @@ function getItems(params) {
     });
 }
 
-export default { getItems };
+function searchItems(params) {
+    return axios(`${API_URL}/photos/search`, {
+        params: Object.assign({}, params, { consumer_key: API_KEY })
+    });
+}
+
+export default {
+    getItems,
+    searchItems
+};

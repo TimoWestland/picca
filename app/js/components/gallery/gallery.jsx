@@ -13,7 +13,7 @@ import {
 } from '../../constants/constants';
 
 
-const START_PAGE = 1;
+const PAGE_START = 1;
 
 const MASONRY_OPTIONS = {
     transitionDuration: 0
@@ -38,7 +38,7 @@ class Gallery extends Component {
 
         this.params = Object.assign({}, STATIC_PARAMS, {
             feature: NavStore.get(),
-            page: START_PAGE
+            page: PAGE_START
         });
 
         setTimeout(() => {

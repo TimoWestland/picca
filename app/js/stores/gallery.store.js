@@ -4,7 +4,8 @@ import BaseStore from './base.store';
 import {
     PHOTOS_UPDATED,
     PHOTOS_GET_SUCCES,
-    PHOTOS_GET_ERROR
+    PHOTOS_GET_ERROR,
+    FEATURE_UPDATED
 } from '../constants/constants';
 
 
@@ -25,17 +26,18 @@ class GalleryStore extends BaseStore {
 let store = new GalleryStore();
 
 Dispatcher.register((action) => {
-   switch(action.type) {
-       case PHOTOS_GET_SUCCES:
-           store.setAll(action.photos);
-           break;
+    switch(action.type) {
+        case PHOTOS_GET_SUCCES:
+            store.setAll(action.data);
+            break;
 
-       case PHOTOS_GET_ERROR:
-           throw new Error(action.error);
-           break;
+        case PHOTOS_GET_ERROR:
+            throw new Error(action.error);
+            break;
 
-       default: return;
-   }
+        default:
+            return;
+    }
 });
 
 export default store;

@@ -27,8 +27,11 @@ let store = new GalleryStore();
 
 Dispatcher.register((action) => {
     switch(action.type) {
+
         case PHOTOS_GET_SUCCES:
-            store.setAll(action.data);
+            action.data.forEach((item) => {
+                store.set(item);
+            });
             break;
 
         case PHOTOS_GET_ERROR:

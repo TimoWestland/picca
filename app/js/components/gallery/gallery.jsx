@@ -13,19 +13,20 @@ import {
 } from '../../constants/constants';
 
 
+const START_PAGE = 1;
+
 const MASONRY_OPTIONS = {
     transitionDuration: 0
 };
 
+const STATIC_PARAMS = {
+    rrp: 25,
+    image_size: 4
+};
+
 function getGalleryState() {
     return {
-        photos: GalleryStore.getAll(),
-        params: {
-            feature: NavStore.get(),
-            page: 1,
-            rrp: 25,
-            image_size: 4
-        }
+        photos: GalleryStore.getAll()
     };
 }
 
@@ -35,7 +36,14 @@ class Gallery extends Component {
         super(props);
         this.state = getGalleryState();
 
-        //window.addEventListener('scroll', this.onScrollEnd.bind(this));
+        this.params = Object.assign({}, STATIC_PARAMS, {
+            feature: NavStore.get(),
+            page: START_PAGE
+        });
+
+        setTimeout(() => {
+            window.addEventListener('scroll', this.onScroll.bind(this));
+        }, 15);
     }
 
     componentWillMount() {
@@ -62,28 +70,31 @@ class Gallery extends Component {
         this.setState(getGalleryState());
     };
 
-    get params() {
-        return this.state.params;
+    onScroll() {
+        const scrollTop = window.pageYOffset;
+        const windowHeight = window.innerHeight;
+
+        const body = document.body;
+        const html = document.documentElement;
+
+        const documentHeight = Math.max(body.scrollHeight, body.offsetHeight,
+            html.clientHeight, html.scrollHeight, html.offsetHeight);
+
+        if(scrollTop !== (documentHeight - windowHeight)) {
+            return false;
+        }
+
+        this.onDocumentEnd();
     }
 
-    //onScrollEnd() {
-    //    //$(window).scrollTop() == $(document).height() - $(window).height()
-    //
-    //    setTimeout(() => {
-    //        let scrollTop = window.pageYOffset;
-    //        let windowHeight = window.innerHeight;
-    //
-    //        let body = document.body;
-    //        let html = document.documentElement;
-    //
-    //        let documentHeight = Math.max(body.scrollHeight, body.offsetHeight,
-    //            html.clientHeight, html.scrollHeight, html.offsetHeight);
-    //
-    //        if(scrollTop !== documentHeight - windowHeight) {
-    //            return false;
-    //        }
-    //    }, 50);
-    //}
+    onDocumentEnd() {
+        let nextPage = this.params.page + 1;
+
+        if(nextPage < 1000) {
+            Actions.getPhotos(this.params);
+            this.params.page = nextPage;
+        }
+    }
 
     render() {
         const { photos } = this.state;

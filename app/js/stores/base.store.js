@@ -27,6 +27,12 @@ class BaseStore extends EventEmitter {
         this.data.delete(item);
         this.emitChange();
     }
+
+    removeAll() {
+        Array.from(this.data).forEach((item) => {
+            this.data.delete(item);
+        });
+    }
 }
 
 export default BaseStore;

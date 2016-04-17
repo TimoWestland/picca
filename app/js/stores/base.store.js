@@ -8,7 +8,11 @@ class BaseStore extends EventEmitter {
     }
 
     setAll(items) {
-        this.data = new Set(items);
+        items.forEach(item => {
+            if(!this.data.has(item)) {
+                this.data.add(item);
+            }
+        });
         this.emitChange();
     }
 

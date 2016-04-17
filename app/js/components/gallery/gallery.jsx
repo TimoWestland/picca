@@ -1,16 +1,12 @@
-import React, { Component, PropTypes } from 'react';
+import React, {Component, PropTypes} from 'react';
 import Masonry from 'react-masonry-component';
 import GalleryStore from '../../stores/gallery.store';
 import NavStore from '../../stores/nav.store';
 import Actions from '../../actions/gallery.actions';
 import Photo from '../photo/photo';
+import Bricklayer from 'bricklayer';
 
 import './gallery.scss';
-
-import {
-    PHOTOS_UPDATED,
-    PHOTOS_GET_SUCCES
-} from '../../constants/constants';
 
 
 const PAGE_START = 1;
@@ -20,7 +16,7 @@ const MASONRY_OPTIONS = {
 };
 
 const STATIC_PARAMS = {
-    rrp: 25,
+    rrp: 30,
     image_size: 4,
     exclude: 'nude'
 };
@@ -42,9 +38,7 @@ class Gallery extends Component {
             page: PAGE_START
         });
 
-        setTimeout(() => {
-            window.addEventListener('scroll', this.onScroll.bind(this));
-        }, 15);
+        window.addEventListener('scroll', this.onScroll.bind(this));
     }
 
     componentWillMount() {
@@ -69,7 +63,6 @@ class Gallery extends Component {
     };
 
     onChange = () => {
-        console.log('change');
         this.setState(getGalleryState());
     };
 
@@ -115,15 +108,13 @@ class Gallery extends Component {
         });
 
         return (
-            <section>
-                <Masonry className={'gallery'}
-                         elementType={'ul'}
-                         options={MASONRY_OPTIONS}
-                         disableImagesLoaded={false}>
+            <Masonry className={'gallery'}
+                     elementType={'ul'}
+                     options={MASONRY_OPTIONS}
+                     disableImagesLoaded={false}>
 
-                    {galleryItems}
-                </Masonry>
-            </section>
+                {galleryItems}
+            </Masonry>
         );
     }
 

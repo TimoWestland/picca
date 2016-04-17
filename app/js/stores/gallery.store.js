@@ -33,9 +33,7 @@ Dispatcher.register((action) => {
 
         case PHOTOS_GET_SUCCES:
         case PHOTOS_SEARCH_SUCCES:
-            action.data.forEach((item) => {
-                store.set(item);
-            });
+            store.setAll(action.data);
             break;
 
         case PHOTOS_GET_ERROR:

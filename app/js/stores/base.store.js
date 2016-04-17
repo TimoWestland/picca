@@ -12,15 +12,15 @@ class BaseStore extends EventEmitter {
         this.emitChange();
     }
 
-    getAll() {
-        return Array.from(this.data);
-    }
-
     set(item) {
         if(!this.data.has(item)) {
             this.data.add(item);
             this.emitChange();
         }
+    }
+
+    getAll() {
+        return Array.from(this.data);
     }
 
     remove(item) {
@@ -29,9 +29,7 @@ class BaseStore extends EventEmitter {
     }
 
     removeAll() {
-        Array.from(this.data).forEach((item) => {
-            this.data.delete(item);
-        });
+        this.data.clear();
         this.emitChange();
     }
 }

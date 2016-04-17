@@ -21,7 +21,8 @@ const MASONRY_OPTIONS = {
 
 const STATIC_PARAMS = {
     rrp: 25,
-    image_size: 4
+    image_size: 4,
+    exclude: 'nude'
 };
 
 function getGalleryState() {
@@ -68,6 +69,7 @@ class Gallery extends Component {
     };
 
     onChange = () => {
+        console.log('change');
         this.setState(getGalleryState());
     };
 

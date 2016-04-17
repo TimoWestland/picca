@@ -46,7 +46,7 @@ class Navigation extends Component {
                     </li>
                     <li className="nav__item">
                         <a className={freshClass}
-                           onClick={this.handleClick.bind(this, 'fresh')}
+                           onClick={this.handleClick.bind(this, 'fresh_week')}
                            title="Fresh">
                             Fresh
                         </a>

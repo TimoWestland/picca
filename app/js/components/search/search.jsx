@@ -6,7 +6,7 @@ import './search.scss';
 const STATIC_PARAMS = {
     rrp: 25,
     image_size: 4,
-    page: 1
+    exclude: 'Nude'
 };
 
 
@@ -16,6 +16,7 @@ class Search extends Component {
         this.params = STATIC_PARAMS;
     }
 
+    // TODO: fix a 'search mode' for gallery view to have infinite scroll within search results
     updateValue = (e) => {
         let query = e.currentTarget.value;
         if(query.length < 2) {
